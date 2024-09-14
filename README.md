@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# In.orbit - Gerenciador de Metas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In.orbit é uma aplicação de gerenciamento de metas pessoais que permite aos usuários criar e gerenciar suas metas semanais. 
+Projetada para ajudar usuários a organizar e monitorar suas metas semanais, a ferramenta combina uma interface visualmente atraente com funcionalidades avançadas para uma experiência de usuário otimizada.
 
-Currently, two official plugins are available:
+#### 🚀 Principais Funcionalidades
+- Criação e Gerenciamento de Metas: Adicione novas metas semanais com facilidade e acompanhe o progresso diretamente da interface do usuário.
+- Rastreamento de Progresso: Monitore metas realizadas e pendentes com barras de progresso visuais, proporcionando uma visão clara do status de cada meta.
+- Integração Eficiente: Conectada por uma API robusta desenvolvida com Node.js, garantindo uma comunicação eficiente entre o frontend e o backend.
+- Pesquisa Avançada: Encontre rapidamente metas realizadas e completas com a funcionalidade de pesquisa integrada. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+In.orbit visa transformar a maneira como você define e alcança seus objetivos, proporcionando uma plataforma eficiente e acessível para gerenciar suas metas pessoais com confiança.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Tecnologias utilizadas
+### Frontend
+    React
+    TypeScript
+    TailwindCss
+    Tailwind-merge
+    Tailwind-variants
+    Radix-ui
+    Dayjs
+    Lucide-react
+    React-hook-form
+    @Hookform/resolvers
+    Zod
+    biomejs
+### Backend 
+    TypeScript
+    Fastify
+    Fastify-type-provider-zod
+    Drizzle-orm
+    Drizzle-kit
+    Postgres
+    Docker
+    Dayjs
+    Zod
+    Biomejs
+    @Paralleldrive/cuid2
+    @Fastify/cors
+    @Fastify/swagger
+    @Fastify/swagger-ui
 
-- Configure the top-level `parserOptions` property like this:
+# 👷 Para executar o projeto:
+## Inicie o front-end
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Clonar repositório
+
+```
+https://github.com/carolprotasio/in.orbit-frontend.git
+```
+Instalar dependências
+
+```
+npm i
+```
+Iniciar aplicação
+
+```
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Créditos
+Este projeto foi desenvolvido com base no tutorial oferecido pela Rocketseat durante o evento NLW. Agradeço à equipe da Rocketseat por fornecer recursos valiosos e conhecimento técnico.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
