@@ -9,6 +9,7 @@ import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
 import ptBR from 'dayjs/locale/pt-BR'
 import { PendingGoals } from './pending-goals'
+import { useDeleteGoalCompletion } from '../http/delete-goal-completion'
 
 dayjs.locale(ptBR)
 
@@ -29,6 +30,12 @@ export function Summary() {
   const percentage = Math.round(data.completed * 100) / data.total
   const rounded = percentage.toFixed(0)
   const completedPercentage = Number.parseFloat(rounded)
+
+  const { mutate: deleteGoal } = useDeleteGoalCompletion()
+
+  async function handleDeleteGoal(completedId: string) {
+    deleteGoal(completedId)
+  }
 
   return (
     <div className="py-10 max-w-[480px] px-5 mx-auto flex flex-col gap-6">
@@ -93,6 +100,13 @@ export function Summary() {
                         <span className="text-zinc-100">{goal.title}</span> às{' '}
                         <span className="text-zinc-100">{time}h</span>
                       </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteGoal(goal.id)}
+                        className="text-zinc-500 underline text-sm px-2"
+                      >
+                        Desfazer
+                      </button>
                     </li>
                   )
                 })}
